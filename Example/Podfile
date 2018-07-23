@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FluidTabBarController_Example' do
+  pod 'FluidTabBarController', :path => '../'
+
+  target 'FluidTabBarController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
