@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FluidTabBarController'
-  s.version          = '0.5.1'
+  s.version          = '0.5.2'
   s.summary          = 'Animated version of UITabBarController'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ Animated version of UITabBarController
   s.ios.deployment_target = '10.0'
   s.swift_version = '4.0'
 
-  s.source_files = 'FluidTabBarController/Classes/**/*'
+  s.source_files = 'FluidTabBarController/**/*'
   
   # s.resource_bundles = {
   #   'FluidTabBarController' => ['FluidTabBarController/Assets/*.png']
