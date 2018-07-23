@@ -1,0 +1,6 @@
+framework module Pods_FluidTabBarController_Example {
+  umbrella header "Pods-FluidTabBarController_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

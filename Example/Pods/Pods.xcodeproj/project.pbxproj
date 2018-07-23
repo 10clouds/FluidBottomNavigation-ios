@@ -1,0 +1,828 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E094680C493F1747843076B4182A347 /* FluidTabBarController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32846C5E8E70DE059E2C65C12B202FAC /* FluidTabBarController-dummy.m */; };
+		13F91833852C2A49748946251C67CFA5 /* FluidTabBarController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC426D158FE7E1307F454FA77BCA868 /* FluidTabBarController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D806A2E2105D0D400E018BD /* FluidTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A1F2105D0D300E018BD /* FluidTabBarController.swift */; };
+		4D806A2F2105D0D400E018BD /* FluidTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A202105D0D300E018BD /* FluidTabBarItem.swift */; };
+		4D806A302105D0D400E018BD /* FluidTabBarItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A212105D0D300E018BD /* FluidTabBarItemContainer.swift */; };
+		4D806A312105D0D400E018BD /* FluidTabBarItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A222105D0D300E018BD /* FluidTabBarItemContentView.swift */; };
+		4D806A322105D0D400E018BD /* StretchyCircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A252105D0D400E018BD /* StretchyCircleLayer.swift */; };
+		4D806A332105D0D400E018BD /* CurveLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A262105D0D400E018BD /* CurveLayer.swift */; };
+		4D806A342105D0D400E018BD /* ContainerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A272105D0D400E018BD /* ContainerAnimator.swift */; };
+		4D806A352105D0D400E018BD /* FluidTabBarItemAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A282105D0D400E018BD /* FluidTabBarItemAnimator.swift */; };
+		4D806A362105D0D400E018BD /* TimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A292105D0D400E018BD /* TimingFunctions.swift */; };
+		4D806A372105D0D400E018BD /* IconAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A2A2105D0D400E018BD /* IconAnimator.swift */; };
+		4D806A382105D0D400E018BD /* LabelAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A2B2105D0D400E018BD /* LabelAnimator.swift */; };
+		4D806A392105D0D400E018BD /* FluidTabBarItemAnimatorDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A2C2105D0D400E018BD /* FluidTabBarItemAnimatorDefault.swift */; };
+		4D806A3A2105D0D400E018BD /* FluidTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D806A2D2105D0D400E018BD /* FluidTabBar.swift */; };
+		613D24075C4CB1E4ED849340AB4D8576 /* Pods-FluidTabBarController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 745D436053872E68358596D3ABCAF94A /* Pods-FluidTabBarController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		729C562D64B530634080F4B24ECA8E2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		8006B5576446A0D56D8C22BDBABDD1BA /* Pods-FluidTabBarController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D39F6DEB29B543C0C576452E1092B277 /* Pods-FluidTabBarController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A84759A177B53ABFA8F3AD9E917BE8FF /* Pods-FluidTabBarController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E5A513BAC50BEE8ECF25277C566FBA /* Pods-FluidTabBarController_Example-dummy.m */; };
+		A883DBE23C8208E21A16723199BAD423 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		E7AE1E8C0DC51BFDF7DBAC14C33D6467 /* Pods-FluidTabBarController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC612F3C069E7A49A61A35A3D2E65E /* Pods-FluidTabBarController_Tests-dummy.m */; };
+		F48398C2DD1EF961858E01FA14454857 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3C2D4DDD18318441169D6EC43955F5D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA5210DC6E7000ED3C299F273A5F9FA5;
+			remoteInfo = FluidTabBarController;
+		};
+		A1324DEF938DCCD26DA1464546D3E4E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A02742A4410537EE3ABE117065CE8A8;
+			remoteInfo = "Pods-FluidTabBarController_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0ECAD5A7047F26053BC9FD2AC8984994 /* Pods-FluidTabBarController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FluidTabBarController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		114EF005CCE20D30EAADB960236AFFC2 /* FluidTabBarController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FluidTabBarController-prefix.pch"; sourceTree = "<group>"; };
+		119FBF08464A264BE49A050F1A75FE86 /* Pods-FluidTabBarController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FluidTabBarController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		32846C5E8E70DE059E2C65C12B202FAC /* FluidTabBarController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FluidTabBarController-dummy.m"; sourceTree = "<group>"; };
+		454651873D2525924464CF5A3E48F7F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A73298F292EC288D3238246BC536EE0 /* Pods-FluidTabBarController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FluidTabBarController_Tests.modulemap"; sourceTree = "<group>"; };
+		4D806A1F2105D0D300E018BD /* FluidTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTabBarController.swift; sourceTree = "<group>"; };
+		4D806A202105D0D300E018BD /* FluidTabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTabBarItem.swift; sourceTree = "<group>"; };
+		4D806A212105D0D300E018BD /* FluidTabBarItemContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTabBarItemContainer.swift; sourceTree = "<group>"; };
+		4D806A222105D0D300E018BD /* FluidTabBarItemContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTabBarItemContentView.swift; sourceTree = "<group>"; };
+		4D806A252105D0D400E018BD /* StretchyCircleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchyCircleLayer.swift; sourceTree = "<group>"; };
+		4D806A262105D0D400E018BD /* CurveLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveLayer.swift; sourceTree = "<group>"; };
+		4D806A272105D0D400E018BD /* ContainerAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerAnimator.swift; sourceTree = "<group>"; };
+		4D806A282105D0D400E018BD /* FluidTabBarItemAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTabBarItemAnimator.swift; sourceTree = "<group>"; };
+		4D806A292105D0D400E018BD /* TimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunctions.swift; sourceTree = "<group>"; };
+		4D806A2A2105D0D400E018BD /* IconAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconAnimator.swift; sourceTree = "<group>"; };
+		4D806A2B2105D0D400E018BD /* LabelAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelAnimator.swift; sourceTree = "<group>"; };
+		4D806A2C2105D0D400E018BD /* FluidTabBarItemAnimatorDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTabBarItemAnimatorDefault.swift; sourceTree = "<group>"; };
+		4D806A2D2105D0D400E018BD /* FluidTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluidTabBar.swift; sourceTree = "<group>"; };
+		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5ECF05C8014505CFB7A0D415F9ECE494 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		745D436053872E68358596D3ABCAF94A /* Pods-FluidTabBarController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FluidTabBarController_Example-umbrella.h"; sourceTree = "<group>"; };
+		78B168746E6D652D7836C096CD69D905 /* FluidTabBarController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FluidTabBarController.xcconfig; sourceTree = "<group>"; };
+		79B4119EAF866B126A273CC14F22D0D7 /* FluidTabBarController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = FluidTabBarController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7B3DDB0A6D32177D723489375765CC98 /* Pods-FluidTabBarController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FluidTabBarController_Example.modulemap"; sourceTree = "<group>"; };
+		7EAC612F3C069E7A49A61A35A3D2E65E /* Pods-FluidTabBarController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FluidTabBarController_Tests-dummy.m"; sourceTree = "<group>"; };
+		7F9C67E5593E3E88EA5B9ED204660720 /* Pods-FluidTabBarController_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FluidTabBarController_Tests-resources.sh"; sourceTree = "<group>"; };
+		837052763325C201E31A33FC0DDCA725 /* Pods-FluidTabBarController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FluidTabBarController_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		8E091F81614D27D3387A5D5334D933D7 /* Pods-FluidTabBarController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FluidTabBarController_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		8E331568F170C269FA2EBD5CA12F825C /* Pods_FluidTabBarController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FluidTabBarController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		920C452635DBEA76C048B3F5A779DA1E /* Pods-FluidTabBarController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FluidTabBarController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		92226ABDA74C627E073DB1928A578E3F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A3E5A513BAC50BEE8ECF25277C566FBA /* Pods-FluidTabBarController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FluidTabBarController_Example-dummy.m"; sourceTree = "<group>"; };
+		ABC426D158FE7E1307F454FA77BCA868 /* FluidTabBarController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FluidTabBarController-umbrella.h"; sourceTree = "<group>"; };
+		BAF77020E0C1C0D6376060F1E17E83C3 /* Pods-FluidTabBarController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FluidTabBarController_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		BFE8AEF10475CD8E42F3AD5C408A44FC /* Pods-FluidTabBarController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FluidTabBarController_Example.release.xcconfig"; sourceTree = "<group>"; };
+		C105199DA1EFFC93E1B9CBC445150B9D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0CA82B984886177A41906826B549F65 /* Pods-FluidTabBarController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FluidTabBarController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D39F6DEB29B543C0C576452E1092B277 /* Pods-FluidTabBarController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FluidTabBarController_Tests-umbrella.h"; sourceTree = "<group>"; };
+		DE50A5640F464567866BFB7AAFE9E22B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4D415E1AA1E0966DCEEA812713E3DE8 /* FluidTabBarController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FluidTabBarController.modulemap; sourceTree = "<group>"; };
+		EE59ADB778DE88993D177A1BB7117829 /* Pods-FluidTabBarController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FluidTabBarController_Example-frameworks.sh"; sourceTree = "<group>"; };
+		EEBE573934CAD9CF73F1050ADFDF2D6D /* Pods_FluidTabBarController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FluidTabBarController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0CCD4F1AF8CD7B1AC2232F9EC92B29 /* FluidTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FluidTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9948198FE5043DF6B34220C9EDA916A /* Pods-FluidTabBarController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FluidTabBarController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		FF86D2F62C71DBB5CB5F7B4ED5A1733E /* Pods-FluidTabBarController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FluidTabBarController_Example-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CD52FF64CDE1B23B67FD63EE9C13FCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				729C562D64B530634080F4B24ECA8E2D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		263C1E6ADE7D4E5547F513C6C49ADE8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A883DBE23C8208E21A16723199BAD423 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58783EF80F55C821542E29ED6ABD1A78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F48398C2DD1EF961858E01FA14454857 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		34C882E65EFEA612CAEED0CC328658F2 /* Pods-FluidTabBarController_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				454651873D2525924464CF5A3E48F7F1 /* Info.plist */,
+				4A73298F292EC288D3238246BC536EE0 /* Pods-FluidTabBarController_Tests.modulemap */,
+				0ECAD5A7047F26053BC9FD2AC8984994 /* Pods-FluidTabBarController_Tests-acknowledgements.markdown */,
+				F9948198FE5043DF6B34220C9EDA916A /* Pods-FluidTabBarController_Tests-acknowledgements.plist */,
+				7EAC612F3C069E7A49A61A35A3D2E65E /* Pods-FluidTabBarController_Tests-dummy.m */,
+				837052763325C201E31A33FC0DDCA725 /* Pods-FluidTabBarController_Tests-frameworks.sh */,
+				7F9C67E5593E3E88EA5B9ED204660720 /* Pods-FluidTabBarController_Tests-resources.sh */,
+				D39F6DEB29B543C0C576452E1092B277 /* Pods-FluidTabBarController_Tests-umbrella.h */,
+				D0CA82B984886177A41906826B549F65 /* Pods-FluidTabBarController_Tests.debug.xcconfig */,
+				BAF77020E0C1C0D6376060F1E17E83C3 /* Pods-FluidTabBarController_Tests.release.xcconfig */,
+			);
+			name = "Pods-FluidTabBarController_Tests";
+			path = "Target Support Files/Pods-FluidTabBarController_Tests";
+			sourceTree = "<group>";
+		};
+		4D806A232105D0D400E018BD /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				4D806A242105D0D400E018BD /* Layers */,
+				4D806A272105D0D400E018BD /* ContainerAnimator.swift */,
+				4D806A282105D0D400E018BD /* FluidTabBarItemAnimator.swift */,
+				4D806A292105D0D400E018BD /* TimingFunctions.swift */,
+				4D806A2A2105D0D400E018BD /* IconAnimator.swift */,
+				4D806A2B2105D0D400E018BD /* LabelAnimator.swift */,
+				4D806A2C2105D0D400E018BD /* FluidTabBarItemAnimatorDefault.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		4D806A242105D0D400E018BD /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				4D806A252105D0D400E018BD /* StretchyCircleLayer.swift */,
+				4D806A262105D0D400E018BD /* CurveLayer.swift */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		4D806A3B2105D3B200E018BD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4D806A232105D0D400E018BD /* Animation */,
+				4D806A2D2105D0D400E018BD /* FluidTabBar.swift */,
+				4D806A1F2105D0D300E018BD /* FluidTabBarController.swift */,
+				4D806A202105D0D300E018BD /* FluidTabBarItem.swift */,
+				4D806A212105D0D300E018BD /* FluidTabBarItemContainer.swift */,
+				4D806A222105D0D300E018BD /* FluidTabBarItemContentView.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5EE0FB8C3B4948FEB80B9DCA4860C869 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				79B4119EAF866B126A273CC14F22D0D7 /* FluidTabBarController.podspec */,
+				92226ABDA74C627E073DB1928A578E3F /* LICENSE */,
+				5ECF05C8014505CFB7A0D415F9ECE494 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		6458B61F418C25ECDEE1809CBE2B65CF /* FluidTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				4D806A3B2105D3B200E018BD /* Classes */,
+				5EE0FB8C3B4948FEB80B9DCA4860C869 /* Pod */,
+				8302DF632ABAB030E773796E1EC24DAB /* Support Files */,
+			);
+			name = FluidTabBarController;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		799267640DE800ABD124EEC655277CE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF0CCD4F1AF8CD7B1AC2232F9EC92B29 /* FluidTabBarController.framework */,
+				EEBE573934CAD9CF73F1050ADFDF2D6D /* Pods_FluidTabBarController_Example.framework */,
+				8E331568F170C269FA2EBD5CA12F825C /* Pods_FluidTabBarController_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				A894816E01CE521B83B4A134675E52D6 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				799267640DE800ABD124EEC655277CE7 /* Products */,
+				9CEC472F539BD55EEFAA1F75AC7250C6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8302DF632ABAB030E773796E1EC24DAB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4D415E1AA1E0966DCEEA812713E3DE8 /* FluidTabBarController.modulemap */,
+				78B168746E6D652D7836C096CD69D905 /* FluidTabBarController.xcconfig */,
+				32846C5E8E70DE059E2C65C12B202FAC /* FluidTabBarController-dummy.m */,
+				114EF005CCE20D30EAADB960236AFFC2 /* FluidTabBarController-prefix.pch */,
+				ABC426D158FE7E1307F454FA77BCA868 /* FluidTabBarController-umbrella.h */,
+				DE50A5640F464567866BFB7AAFE9E22B /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/FluidTabBarController";
+			sourceTree = "<group>";
+		};
+		9CEC472F539BD55EEFAA1F75AC7250C6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAB834D63970BAD4734028174642C90C /* Pods-FluidTabBarController_Example */,
+				34C882E65EFEA612CAEED0CC328658F2 /* Pods-FluidTabBarController_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A894816E01CE521B83B4A134675E52D6 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6458B61F418C25ECDEE1809CBE2B65CF /* FluidTabBarController */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E0D919E635D23B70123790B8308F8EF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CAB834D63970BAD4734028174642C90C /* Pods-FluidTabBarController_Example */ = {
+			isa = PBXGroup;
+			children = (
+				C105199DA1EFFC93E1B9CBC445150B9D /* Info.plist */,
+				7B3DDB0A6D32177D723489375765CC98 /* Pods-FluidTabBarController_Example.modulemap */,
+				119FBF08464A264BE49A050F1A75FE86 /* Pods-FluidTabBarController_Example-acknowledgements.markdown */,
+				920C452635DBEA76C048B3F5A779DA1E /* Pods-FluidTabBarController_Example-acknowledgements.plist */,
+				A3E5A513BAC50BEE8ECF25277C566FBA /* Pods-FluidTabBarController_Example-dummy.m */,
+				EE59ADB778DE88993D177A1BB7117829 /* Pods-FluidTabBarController_Example-frameworks.sh */,
+				FF86D2F62C71DBB5CB5F7B4ED5A1733E /* Pods-FluidTabBarController_Example-resources.sh */,
+				745D436053872E68358596D3ABCAF94A /* Pods-FluidTabBarController_Example-umbrella.h */,
+				8E091F81614D27D3387A5D5334D933D7 /* Pods-FluidTabBarController_Example.debug.xcconfig */,
+				BFE8AEF10475CD8E42F3AD5C408A44FC /* Pods-FluidTabBarController_Example.release.xcconfig */,
+			);
+			name = "Pods-FluidTabBarController_Example";
+			path = "Target Support Files/Pods-FluidTabBarController_Example";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		053C63A24E4A3A87A866F994A7B4213E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8006B5576446A0D56D8C22BDBABDD1BA /* Pods-FluidTabBarController_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		850E0D4FE3037683787C57C39FD757DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13F91833852C2A49748946251C67CFA5 /* FluidTabBarController-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8EAAD423E007BB0D0335B791B1F97FC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				613D24075C4CB1E4ED849340AB4D8576 /* Pods-FluidTabBarController_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2A02742A4410537EE3ABE117065CE8A8 /* Pods-FluidTabBarController_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A220494BBBF86A6EB09A4A7CC1BA2CF /* Build configuration list for PBXNativeTarget "Pods-FluidTabBarController_Example" */;
+			buildPhases = (
+				4A053434CD02D40F32B4DAD8CB56A734 /* Sources */,
+				58783EF80F55C821542E29ED6ABD1A78 /* Frameworks */,
+				B8EAAD423E007BB0D0335B791B1F97FC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D9C7E75CA6FABD91274017FE1F8ABFF1 /* PBXTargetDependency */,
+			);
+			name = "Pods-FluidTabBarController_Example";
+			productName = "Pods-FluidTabBarController_Example";
+			productReference = EEBE573934CAD9CF73F1050ADFDF2D6D /* Pods_FluidTabBarController_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4A0878EDF364FE77F4DC8A9A693B3838 /* Pods-FluidTabBarController_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A63413E5A63C15D2081A1613195E4A68 /* Build configuration list for PBXNativeTarget "Pods-FluidTabBarController_Tests" */;
+			buildPhases = (
+				7C398D33012EAE621198A1722C4ED032 /* Sources */,
+				263C1E6ADE7D4E5547F513C6C49ADE8E /* Frameworks */,
+				053C63A24E4A3A87A866F994A7B4213E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E1282BCDB34DC220957A1D0411D454C /* PBXTargetDependency */,
+			);
+			name = "Pods-FluidTabBarController_Tests";
+			productName = "Pods-FluidTabBarController_Tests";
+			productReference = 8E331568F170C269FA2EBD5CA12F825C /* Pods_FluidTabBarController_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FA5210DC6E7000ED3C299F273A5F9FA5 /* FluidTabBarController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0A1E7A985E1798EA18422EFB10B0725 /* Build configuration list for PBXNativeTarget "FluidTabBarController" */;
+			buildPhases = (
+				0004383280FCBFE784CDC56075AD084F /* Sources */,
+				1CD52FF64CDE1B23B67FD63EE9C13FCF /* Frameworks */,
+				850E0D4FE3037683787C57C39FD757DD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FluidTabBarController;
+			productName = FluidTabBarController;
+			productReference = EF0CCD4F1AF8CD7B1AC2232F9EC92B29 /* FluidTabBarController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 799267640DE800ABD124EEC655277CE7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA5210DC6E7000ED3C299F273A5F9FA5 /* FluidTabBarController */,
+				2A02742A4410537EE3ABE117065CE8A8 /* Pods-FluidTabBarController_Example */,
+				4A0878EDF364FE77F4DC8A9A693B3838 /* Pods-FluidTabBarController_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0004383280FCBFE784CDC56075AD084F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D806A352105D0D400E018BD /* FluidTabBarItemAnimator.swift in Sources */,
+				4D806A342105D0D400E018BD /* ContainerAnimator.swift in Sources */,
+				4D806A322105D0D400E018BD /* StretchyCircleLayer.swift in Sources */,
+				4D806A362105D0D400E018BD /* TimingFunctions.swift in Sources */,
+				0E094680C493F1747843076B4182A347 /* FluidTabBarController-dummy.m in Sources */,
+				4D806A372105D0D400E018BD /* IconAnimator.swift in Sources */,
+				4D806A382105D0D400E018BD /* LabelAnimator.swift in Sources */,
+				4D806A2E2105D0D400E018BD /* FluidTabBarController.swift in Sources */,
+				4D806A392105D0D400E018BD /* FluidTabBarItemAnimatorDefault.swift in Sources */,
+				4D806A312105D0D400E018BD /* FluidTabBarItemContentView.swift in Sources */,
+				4D806A3A2105D0D400E018BD /* FluidTabBar.swift in Sources */,
+				4D806A332105D0D400E018BD /* CurveLayer.swift in Sources */,
+				4D806A2F2105D0D400E018BD /* FluidTabBarItem.swift in Sources */,
+				4D806A302105D0D400E018BD /* FluidTabBarItemContainer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A053434CD02D40F32B4DAD8CB56A734 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A84759A177B53ABFA8F3AD9E917BE8FF /* Pods-FluidTabBarController_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C398D33012EAE621198A1722C4ED032 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7AE1E8C0DC51BFDF7DBAC14C33D6467 /* Pods-FluidTabBarController_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E1282BCDB34DC220957A1D0411D454C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-FluidTabBarController_Example";
+			target = 2A02742A4410537EE3ABE117065CE8A8 /* Pods-FluidTabBarController_Example */;
+			targetProxy = A1324DEF938DCCD26DA1464546D3E4E5 /* PBXContainerItemProxy */;
+		};
+		D9C7E75CA6FABD91274017FE1F8ABFF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FluidTabBarController;
+			target = FA5210DC6E7000ED3C299F273A5F9FA5 /* FluidTabBarController */;
+			targetProxy = 3C2D4DDD18318441169D6EC43955F5D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		081113F1788D5D43C83B93FFF28F4F8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFE8AEF10475CD8E42F3AD5C408A44FC /* Pods-FluidTabBarController_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FluidTabBarController_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FluidTabBarController_Example/Pods-FluidTabBarController_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		27A25B915A509088193732D448C2C7E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78B168746E6D652D7836C096CD69D905 /* FluidTabBarController.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FluidTabBarController/FluidTabBarController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FluidTabBarController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FluidTabBarController/FluidTabBarController.modulemap";
+				PRODUCT_MODULE_NAME = FluidTabBarController;
+				PRODUCT_NAME = FluidTabBarController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3D523DF606590281EAAAB8C035E25492 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAF77020E0C1C0D6376060F1E17E83C3 /* Pods-FluidTabBarController_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FluidTabBarController_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FluidTabBarController_Tests/Pods-FluidTabBarController_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		553022A828EE1991F07D2D73F565AEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		58CE816B060A41D32CEC095441D0E3E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		A403E38CC53DEEB849CB23D0BCF38892 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0CA82B984886177A41906826B549F65 /* Pods-FluidTabBarController_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FluidTabBarController_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FluidTabBarController_Tests/Pods-FluidTabBarController_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A602CECCF92A01B310DAB4DFAB667BCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78B168746E6D652D7836C096CD69D905 /* FluidTabBarController.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FluidTabBarController/FluidTabBarController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FluidTabBarController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FluidTabBarController/FluidTabBarController.modulemap";
+				PRODUCT_MODULE_NAME = FluidTabBarController;
+				PRODUCT_NAME = FluidTabBarController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BBD9177A9BF3B539ED3EF54BB041B71E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E091F81614D27D3387A5D5334D933D7 /* Pods-FluidTabBarController_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FluidTabBarController_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FluidTabBarController_Example/Pods-FluidTabBarController_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				553022A828EE1991F07D2D73F565AEF8 /* Debug */,
+				58CE816B060A41D32CEC095441D0E3E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A220494BBBF86A6EB09A4A7CC1BA2CF /* Build configuration list for PBXNativeTarget "Pods-FluidTabBarController_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBD9177A9BF3B539ED3EF54BB041B71E /* Debug */,
+				081113F1788D5D43C83B93FFF28F4F8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A63413E5A63C15D2081A1613195E4A68 /* Build configuration list for PBXNativeTarget "Pods-FluidTabBarController_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A403E38CC53DEEB849CB23D0BCF38892 /* Debug */,
+				3D523DF606590281EAAAB8C035E25492 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0A1E7A985E1798EA18422EFB10B0725 /* Build configuration list for PBXNativeTarget "FluidTabBarController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A602CECCF92A01B310DAB4DFAB667BCE /* Debug */,
+				27A25B915A509088193732D448C2C7E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
