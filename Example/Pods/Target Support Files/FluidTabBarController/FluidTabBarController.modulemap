@@ -1,0 +1,6 @@
+framework module FluidTabBarController {
+  umbrella header "FluidTabBarController-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FluidTabBarController'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of FluidTabBarController.'
+  s.version          = '0.5.0'
+  s.summary          = 'Animated version of UITabBarController'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,18 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Animated version of UITabBarController
                        DESC
 
-  s.homepage         = 'https://github.com/Hubert Kuczyński/FluidTabBarController'
+  s.homepage         = 'https://github.com/10clouds/FluidBottomNavigation-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Hubert Kuczyński' => 'hubert.kuczynski@10clouds.com' }
-  s.source           = { :git => 'https://github.com/Hubert Kuczyński/FluidTabBarController.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/10clouds/FluidBottomNavigation-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
+  s.swift_version = '4.0'
 
   s.source_files = 'FluidTabBarController/Classes/**/*'
   
