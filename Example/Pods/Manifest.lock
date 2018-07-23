@@ -1,5 +1,5 @@
 PODS:
-  - FluidTabBarController (0.1.0)
+  - FluidTabBarController (0.5.2)
 
 DEPENDENCIES:
   - FluidTabBarController (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FluidTabBarController: 8026aabac8f3bda05b6f5f86b7140ea775009611
+  FluidTabBarController: 1669368f2e962ad415d117ddb7fa8248de3f8d98
 
 PODFILE CHECKSUM: 33665f8fb2d934c7bdc0fab4d0a4f3392c71609c
 
