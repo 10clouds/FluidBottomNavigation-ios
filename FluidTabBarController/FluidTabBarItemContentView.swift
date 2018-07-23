@@ -143,15 +143,15 @@ open class FluidTabBarItemContentView: UIView {
     }
 
     open func updateLayout() {
-        let w = self.bounds.size.width
-        let h = self.bounds.size.height
+        let width = bounds.size.width
+        let height = bounds.size.height
 
-        imageView.isHidden = (imageView.image == nil)
-        titleLabel.isHidden = (titleLabel.text == nil)
+        imageView.isHidden = imageView.image == nil
+        titleLabel.isHidden = titleLabel.text == nil
 
         if self.itemContentMode == .alwaysTemplate {
-            var s: CGFloat = 0.0 // image size
-            var f: CGFloat = 0.0 // font
+            var imageSize: CGFloat = 0.0
+            var fontSize: CGFloat = 0.0
             var isLandscape = false
             if let keyWindow = UIApplication.shared.keyWindow {
                 isLandscape = keyWindow.bounds.width > keyWindow.bounds.height
@@ -159,56 +159,56 @@ open class FluidTabBarItemContentView: UIView {
             // is landscape or regular
             let isWide = animator.allowsLandscapeIconsArrangement && (isLandscape || traitCollection.horizontalSizeClass == .regular)
             if #available(iOS 11.0, *), isWide {
-                s = UIScreen.main.scale == 3.0 ? 23.0 : 20.0
-                f = UIScreen.main.scale == 3.0 ? 13.0 : 12.0
+                imageSize = UIScreen.main.scale == 3.0 ? 23.0 : 20.0
+                fontSize = UIScreen.main.scale == 3.0 ? 13.0 : 12.0
             } else {
-                s = 23.0
-                f = 10.0
+                imageSize = 23.0
+                fontSize = 10.0
             }
 
             if !imageView.isHidden && !titleLabel.isHidden {
-                titleLabel.font = UIFont.systemFont(ofSize: f)
+                titleLabel.font = UIFont.systemFont(ofSize: fontSize)
                 titleLabel.sizeToFit()
                 if #available(iOS 11.0, *), isWide {
                     titleLabel.frame = CGRect(
-                        x: (w - titleLabel.bounds.size.width) / 2.0 + (UIScreen.main.scale == 3.0 ? 14.25 : 12.25),
-                        y: (h - titleLabel.bounds.size.height) / 2.0,
+                        x: (width - titleLabel.bounds.size.width) / 2.0 + (UIScreen.main.scale == 3.0 ? 14.25 : 12.25),
+                        y: (height - titleLabel.bounds.size.height) / 2.0,
                         width: titleLabel.bounds.size.width,
                         height: titleLabel.bounds.size.height
                     )
                     imageViewContainer.frame = CGRect(
-                        x: titleLabel.frame.origin.x - s - (UIScreen.main.scale == 3.0 ? 6.0 : 5.0),
-                        y: (h - s) / 2.0,
-                        width: s,
-                        height: s
+                        x: titleLabel.frame.origin.x - imageSize - (UIScreen.main.scale == 3.0 ? 6.0 : 5.0),
+                        y: (height - imageSize) / 2.0,
+                        width: imageSize,
+                        height: imageSize
                     )
                 } else {
                     titleLabel.frame = CGRect(
-                        x: (w - titleLabel.bounds.size.width) / 2.0,
-                        y: h - titleLabel.bounds.size.height - 1.0,
+                        x: (width - titleLabel.bounds.size.width) / 2.0,
+                        y: height - titleLabel.bounds.size.height - 1.0,
                         width: titleLabel.bounds.size.width,
                         height: titleLabel.bounds.size.height
                     )
                     imageViewContainer.frame = CGRect(
-                        x: (w - s) / 2.0,
-                        y: (h - s) / 2.0 - 6.0,
-                        width: s,
-                        height: s
+                        x: (width - imageSize) / 2.0,
+                        y: (height - imageSize) / 2.0 - 6.0,
+                        width: imageSize,
+                        height: imageSize
                     )
                 }
             } else if !imageView.isHidden {
                 imageViewContainer.frame = CGRect(
-                    x: (w - s) / 2.0,
-                    y: (h - s) / 2.0,
-                    width: s,
-                    height: s
+                    x: (width - imageSize) / 2.0,
+                    y: (height - imageSize) / 2.0,
+                    width: imageSize,
+                    height: imageSize
                 )
             } else if !titleLabel.isHidden {
-                titleLabel.font = UIFont.systemFont(ofSize: f)
+                titleLabel.font = UIFont.systemFont(ofSize: fontSize)
                 titleLabel.sizeToFit()
                 titleLabel.frame = CGRect(
-                    x: (w - titleLabel.bounds.size.width) / 2.0,
-                    y: (h - titleLabel.bounds.size.height) / 2.0,
+                    x: (width - titleLabel.bounds.size.width) / 2.0,
+                    y: (height - titleLabel.bounds.size.height) / 2.0,
                     width: titleLabel.bounds.size.width,
                     height: titleLabel.bounds.size.height
                 )
@@ -219,23 +219,23 @@ open class FluidTabBarItemContentView: UIView {
                 titleLabel.sizeToFit()
                 imageView.sizeToFit()
                 titleLabel.frame = CGRect(
-                    x: (w - titleLabel.bounds.size.width) / 2.0,
-                    y: h - titleLabel.bounds.size.height - 1.0,
+                    x: (width - titleLabel.bounds.size.width) / 2.0,
+                    y: height - titleLabel.bounds.size.height - 1.0,
                     width: titleLabel.bounds.size.width,
                     height: titleLabel.bounds.size.height
                 )
                 imageViewContainer.frame = CGRect(
-                    x: (w - imageView.bounds.size.width) / 2.0,
-                    y: (h - imageView.bounds.size.height) / 2.0 - 6.0,
+                    x: (width - imageView.bounds.size.width) / 2.0,
+                    y: (height - imageView.bounds.size.height) / 2.0 - 6.0,
                     width: imageView.bounds.size.width,
                     height: imageView.bounds.size.height
                 )
             } else if !imageView.isHidden {
                 imageView.sizeToFit()
-                imageViewContainer.center = CGPoint(x: w / 2.0, y: h / 2.0)
+                imageViewContainer.center = CGPoint(x: width / 2.0, y: height / 2.0)
             } else if !titleLabel.isHidden {
                 titleLabel.sizeToFit()
-                titleLabel.center = CGPoint(x: w / 2.0, y: h / 2.0)
+                titleLabel.center = CGPoint(x: width / 2.0, y: height / 2.0)
             }
         }
 

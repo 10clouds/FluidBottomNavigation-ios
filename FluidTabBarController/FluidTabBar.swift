@@ -55,15 +55,15 @@ final class FluidTabBar: UITabBar {
     }
 
     open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        var b = super.point(inside: point, with: event)
-        if !b {
+        var superPointInside = super.point(inside: point, with: event)
+        if !superPointInside {
             for container in containers {
                 if container.point(inside: CGPoint.init(x: point.x - container.frame.origin.x, y: point.y - container.frame.origin.y), with: event) {
-                    b = true
+                    superPointInside = true
                 }
             }
         }
-        return b
+        return superPointInside
     }
 
     private func updateTopLineColor() {
@@ -82,9 +82,9 @@ extension FluidTabBar {
                 return subview.isKind(of: cls)
             }
             return false
-        }
-        .sorted { (subview1, subview2) -> Bool in
-            return subview1.frame.origin.x < subview2.frame.origin.x
+            }
+            .sorted { (subview1, subview2) -> Bool in
+                return subview1.frame.origin.x < subview2.frame.origin.x
         }
 
         for (idx, item) in tabBarItems.enumerated() {
@@ -187,10 +187,10 @@ extension FluidTabBar {
 
             if let tabBarController = tabBarController {
                 var navVC: UINavigationController?
-                if let n = tabBarController.selectedViewController as? UINavigationController {
-                    navVC = n
-                } else if let n = tabBarController.selectedViewController?.navigationController {
-                    navVC = n
+                if let navigationController = tabBarController.selectedViewController as? UINavigationController {
+                    navVC = navigationController
+                } else if let tabBarController = tabBarController.selectedViewController?.navigationController {
+                    navVC = tabBarController
                 }
 
                 if let navVC = navVC {
@@ -213,17 +213,12 @@ extension FluidTabBar {
 extension UIImage {
     class func colorForNavBar(color: UIColor) -> UIImage {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
-        //    Or if you need a thinner border :
-        //    let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 0.5)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
-
         context!.setFillColor(color.cgColor)
         context!.fill(rect)
-
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
         return image!
     }
 }
