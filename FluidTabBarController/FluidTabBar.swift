@@ -12,13 +12,7 @@ final class FluidTabBar: UITabBar {
 
     // MARK: Public properties
 
-    public var itemEdgeInsets = UIEdgeInsets.zero
-
-    internal var containers = [FluidTabBarItemContainer]()
-
-    internal weak var tabBarController: UITabBarController?
-
-    open override var items: [UITabBarItem]? {
+    override var items: [UITabBarItem]? {
         didSet {
             self.reload()
         }
@@ -29,6 +23,12 @@ final class FluidTabBar: UITabBar {
             updateTopLineColor()
         }
     }
+
+    weak var tabBarController: UITabBarController?
+
+    // MARK: Private properties
+
+    private var containers = [FluidTabBarItemContainer]()
 
     // MARK: Initializers
 
@@ -44,17 +44,17 @@ final class FluidTabBar: UITabBar {
 
     // MARK: Public methods
 
-    open override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         updateLayout()
     }
 
-    open override func setItems(_ items: [UITabBarItem]?, animated: Bool) {
+    override func setItems(_ items: [UITabBarItem]?, animated: Bool) {
         super.setItems(items, animated: animated)
         reload()
     }
 
-    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         var superPointInside = super.point(inside: point, with: event)
         if !superPointInside {
             for container in containers {
@@ -74,7 +74,7 @@ final class FluidTabBar: UITabBar {
 }
 
 extension FluidTabBar {
-    internal func updateLayout() {
+    private func updateLayout() {
         guard let tabBarItems = self.items else { return }
 
         let tabBarButtons = subviews.filter { subview -> Bool in
@@ -101,14 +101,14 @@ extension FluidTabBar {
 }
 
 extension FluidTabBar {
-    internal func removeAll() {
+    private func removeAll() {
         for container in containers {
             container.removeFromSuperview()
         }
         containers.removeAll()
     }
 
-    internal func reload() {
+    private func reload() {
         removeAll()
         guard let tabBarItems = self.items else {
             return
@@ -204,13 +204,12 @@ extension FluidTabBar {
                         }
                     }
                 }
-
             }
         }
     }
 }
 
-extension UIImage {
+private extension UIImage {
     class func colorForNavBar(color: UIColor) -> UIImage {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)

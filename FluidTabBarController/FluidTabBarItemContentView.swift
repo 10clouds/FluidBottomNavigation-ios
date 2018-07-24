@@ -8,22 +8,16 @@
 
 import UIKit
 
-public enum FluidTabBarItemContentMode: Int {
-    case alwaysOriginal
-    case alwaysTemplate
-}
-
 open class FluidTabBarItemContentView: UIView {
 
     // MARK: Public properties
 
+    /// Performs state change animations
     open lazy var animator: FluidTabBarItemAnimator = {
         let animation = FluidTabBarItemAnimatorDefault()
         animation.contentView = self
         return animation
     }()
-
-    open var insets = UIEdgeInsets.zero
 
     open var selected = false
 
@@ -38,13 +32,7 @@ open class FluidTabBarItemContentView: UIView {
         }
     }
 
-    /// Item content mode, default is .alwaysTemplate like UITabBarItem
-    open var itemContentMode: FluidTabBarItemContentMode = .alwaysTemplate {
-        didSet {
-            self.updateDisplay()
-        }
-    }
-
+    /// Sets the color of selected item's image and text
     open override var tintColor: UIColor! {
         didSet {
             highlightTextColor = tintColor
@@ -71,6 +59,7 @@ open class FluidTabBarItemContentView: UIView {
         }
     }
 
+    /// Text color of not selected item
     open var textColor = UIColor(white: 0.57254902, alpha: 1.0) {
         didSet {
             if !selected {
@@ -79,6 +68,7 @@ open class FluidTabBarItemContentView: UIView {
         }
     }
 
+    /// Text color of selected item
     open var highlightTextColor = UIColor(red: 0.0, green: 0.47843137, blue: 1.0, alpha: 1.0) {
         didSet {
             if selected {
@@ -87,6 +77,7 @@ open class FluidTabBarItemContentView: UIView {
         }
     }
 
+    /// Image color of not selected item
     open var imageColor = UIColor(white: 0.57254902, alpha: 1.0) {
         didSet {
             if !selected {
@@ -95,6 +86,7 @@ open class FluidTabBarItemContentView: UIView {
         }
     }
 
+    /// Image color of selected item
     open var highlightImageColor: UIColor = UIColor(red: 0.0, green: 0.47843137, blue: 1.0, alpha: 1.0) {
         didSet {
             if selected {
@@ -102,8 +94,6 @@ open class FluidTabBarItemContentView: UIView {
             }
         }
     }
-
-    let imageViewContainer = UIView()
 
     open var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -118,6 +108,8 @@ open class FluidTabBarItemContentView: UIView {
         titleLabel.textAlignment = .center
         return titleLabel
     }()
+
+    internal let imageViewContainer = UIView()
 
     // MARK: Initializers
 
@@ -136,12 +128,14 @@ open class FluidTabBarItemContentView: UIView {
 
     // MARK: Public methods
 
+    /// Updates the contents of titleLabel and imageView depending on the selection
     open func updateDisplay() {
         imageView.image = (selected ? (selectedImage ?? image) : image)?.withRenderingMode(renderingMode)
         imageView.tintColor = selected ? highlightImageColor : imageColor
         titleLabel.textColor = selected ? highlightTextColor : textColor
     }
 
+    /// Updates the content view layout
     open func updateLayout() {
         let width = bounds.size.width
         let height = bounds.size.height
@@ -149,75 +143,39 @@ open class FluidTabBarItemContentView: UIView {
         imageView.isHidden = imageView.image == nil
         titleLabel.isHidden = titleLabel.text == nil
 
-        if self.itemContentMode == .alwaysTemplate {
-            var imageSize: CGFloat = 0.0
-            var fontSize: CGFloat = 0.0
-            var isLandscape = false
-            if let keyWindow = UIApplication.shared.keyWindow {
-                isLandscape = keyWindow.bounds.width > keyWindow.bounds.height
-            }
-            // is landscape or regular
-            let isWide = animator.allowsLandscapeIconsArrangement && (isLandscape || traitCollection.horizontalSizeClass == .regular)
-            if #available(iOS 11.0, *), isWide {
-                imageSize = UIScreen.main.scale == 3.0 ? 23.0 : 20.0
-                fontSize = UIScreen.main.scale == 3.0 ? 13.0 : 12.0
-            } else {
-                imageSize = 23.0
-                fontSize = 10.0
-            }
+        var imageSize: CGFloat = 0.0
+        var fontSize: CGFloat = 0.0
+        var isLandscape = false
+        if let keyWindow = UIApplication.shared.keyWindow {
+            isLandscape = keyWindow.bounds.width > keyWindow.bounds.height
+        }
+        // is landscape or regular
+        let isWide = animator.allowsLandscapeIconsArrangement && (isLandscape || traitCollection.horizontalSizeClass == .regular)
+        if #available(iOS 11.0, *), isWide {
+            imageSize = UIScreen.main.scale == 3.0 ? 23.0 : 20.0
+            fontSize = UIScreen.main.scale == 3.0 ? 13.0 : 12.0
+        } else {
+            imageSize = 23.0
+            fontSize = 10.0
+        }
 
-            if !imageView.isHidden && !titleLabel.isHidden {
-                titleLabel.font = UIFont.systemFont(ofSize: fontSize)
-                titleLabel.sizeToFit()
-                if #available(iOS 11.0, *), isWide {
-                    titleLabel.frame = CGRect(
-                        x: (width - titleLabel.bounds.size.width) / 2.0 + (UIScreen.main.scale == 3.0 ? 14.25 : 12.25),
-                        y: (height - titleLabel.bounds.size.height) / 2.0,
-                        width: titleLabel.bounds.size.width,
-                        height: titleLabel.bounds.size.height
-                    )
-                    imageViewContainer.frame = CGRect(
-                        x: titleLabel.frame.origin.x - imageSize - (UIScreen.main.scale == 3.0 ? 6.0 : 5.0),
-                        y: (height - imageSize) / 2.0,
-                        width: imageSize,
-                        height: imageSize
-                    )
-                } else {
-                    titleLabel.frame = CGRect(
-                        x: (width - titleLabel.bounds.size.width) / 2.0,
-                        y: height - titleLabel.bounds.size.height - 1.0,
-                        width: titleLabel.bounds.size.width,
-                        height: titleLabel.bounds.size.height
-                    )
-                    imageViewContainer.frame = CGRect(
-                        x: (width - imageSize) / 2.0,
-                        y: (height - imageSize) / 2.0 - 6.0,
-                        width: imageSize,
-                        height: imageSize
-                    )
-                }
-            } else if !imageView.isHidden {
-                imageViewContainer.frame = CGRect(
-                    x: (width - imageSize) / 2.0,
-                    y: (height - imageSize) / 2.0,
-                    width: imageSize,
-                    height: imageSize
-                )
-            } else if !titleLabel.isHidden {
-                titleLabel.font = UIFont.systemFont(ofSize: fontSize)
-                titleLabel.sizeToFit()
+        if !imageView.isHidden && !titleLabel.isHidden {
+            titleLabel.font = UIFont.systemFont(ofSize: fontSize)
+            titleLabel.sizeToFit()
+            if #available(iOS 11.0, *), isWide {
                 titleLabel.frame = CGRect(
-                    x: (width - titleLabel.bounds.size.width) / 2.0,
+                    x: (width - titleLabel.bounds.size.width) / 2.0 + (UIScreen.main.scale == 3.0 ? 14.25 : 12.25),
                     y: (height - titleLabel.bounds.size.height) / 2.0,
                     width: titleLabel.bounds.size.width,
                     height: titleLabel.bounds.size.height
                 )
-            }
-
-        } else {
-            if !imageView.isHidden && !titleLabel.isHidden {
-                titleLabel.sizeToFit()
-                imageView.sizeToFit()
+                imageViewContainer.frame = CGRect(
+                    x: titleLabel.frame.origin.x - imageSize - (UIScreen.main.scale == 3.0 ? 6.0 : 5.0),
+                    y: (height - imageSize) / 2.0,
+                    width: imageSize,
+                    height: imageSize
+                )
+            } else {
                 titleLabel.frame = CGRect(
                     x: (width - titleLabel.bounds.size.width) / 2.0,
                     y: height - titleLabel.bounds.size.height - 1.0,
@@ -225,18 +183,28 @@ open class FluidTabBarItemContentView: UIView {
                     height: titleLabel.bounds.size.height
                 )
                 imageViewContainer.frame = CGRect(
-                    x: (width - imageView.bounds.size.width) / 2.0,
-                    y: (height - imageView.bounds.size.height) / 2.0 - 6.0,
-                    width: imageView.bounds.size.width,
-                    height: imageView.bounds.size.height
+                    x: (width - imageSize) / 2.0,
+                    y: (height - imageSize) / 2.0 - 6.0,
+                    width: imageSize,
+                    height: imageSize
                 )
-            } else if !imageView.isHidden {
-                imageView.sizeToFit()
-                imageViewContainer.center = CGPoint(x: width / 2.0, y: height / 2.0)
-            } else if !titleLabel.isHidden {
-                titleLabel.sizeToFit()
-                titleLabel.center = CGPoint(x: width / 2.0, y: height / 2.0)
             }
+        } else if !imageView.isHidden {
+            imageViewContainer.frame = CGRect(
+                x: (width - imageSize) / 2.0,
+                y: (height - imageSize) / 2.0,
+                width: imageSize,
+                height: imageSize
+            )
+        } else if !titleLabel.isHidden {
+            titleLabel.font = UIFont.systemFont(ofSize: fontSize)
+            titleLabel.sizeToFit()
+            titleLabel.frame = CGRect(
+                x: (width - titleLabel.bounds.size.width) / 2.0,
+                y: (height - titleLabel.bounds.size.height) / 2.0,
+                width: titleLabel.bounds.size.width,
+                height: titleLabel.bounds.size.height
+            )
         }
 
         imageView.frame = imageViewContainer.bounds
@@ -249,7 +217,7 @@ open class FluidTabBarItemContentView: UIView {
 }
 
 extension FluidTabBarItemContentView {
-    internal final func select(animated: Bool, completion: (() -> ())?) {
+    internal func select(animated: Bool, completion: (() -> ())?) {
         selected = true
         if highlightEnabled && highlighted {
             highlighted = false
@@ -263,13 +231,13 @@ extension FluidTabBarItemContentView {
         }
     }
 
-    internal final func deselect(animated: Bool, completion: (() -> ())?) {
+    internal func deselect(animated: Bool, completion: (() -> ())?) {
         selected = false
         updateDisplay()
         animator.deselectAnimation(animated: animated, completion: completion)
     }
 
-    internal final func reselect(animated: Bool, completion: (() -> ())?) {
+    internal func reselect(animated: Bool, completion: (() -> ())?) {
         if selected == false {
             select(animated: animated, completion: completion)
         } else {
@@ -284,7 +252,7 @@ extension FluidTabBarItemContentView {
         }
     }
 
-    internal final func highlight(animated: Bool, completion: (() -> ())?) {
+    internal func highlight(animated: Bool, completion: (() -> ())?) {
         if !highlightEnabled || highlighted {
             return
         }
@@ -292,7 +260,7 @@ extension FluidTabBarItemContentView {
         self.animator.highlightAnimation(animated: animated, completion: completion)
     }
 
-    internal final func dehighlight(animated: Bool, completion: (() -> ())?) {
+    internal func dehighlight(animated: Bool, completion: (() -> ())?) {
         if !highlightEnabled || !highlighted {
             return
         }
