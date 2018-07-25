@@ -1,0 +1,167 @@
+format_version: '5'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+
+# Environment configuration
+
+app:
+  envs:
+  - BITRISE_SCHEME_DEVELOPMENT: CerealGaming
+  - BITRISE_SCHEME_STAGING: CerealGaming
+  - BITRISE_PROJECT_PATH: "CerealGaming.xcworkspace"
+    opts:
+      is_expand: false
+  - BITRISE_SCHEME: CerealGaming
+    opts:
+      is_expand: false
+  - BITRISE_INFO_PLIST_PATH: CerealGaming/Application/info.plist
+    opts:
+      is_expand: true
+
+
+# Workflow trigger map
+
+trigger_map:
+- push_branch: develop
+  workflow: develop
+
+- push_branch: master
+  workflow: master
+
+- push_branch: epic/*
+  workflow: develop
+
+- pull_request_target_branch: develop
+  workflow: pull-requests
+
+- push_branch: staging
+  workflow: staging
+
+# Workflow declarations
+
+workflows:
+
+  # The master workflow
+
+  master:
+    before_run: 
+        - cache-pull
+        - pods
+    after_run: 
+        - archive-and-deploy-develop
+        - save-cache
+        - deploy-artifacts
+
+  # The pull-requests workflow
+
+  pull-requests:
+    before_run: 
+        - cache-pull
+        - pods
+    after_run: 
+        - test
+        - save-cache
+
+  # The development workflow
+
+  develop:
+    before_run: 
+        - cache-pull
+        - pods
+    after_run:
+        - save-cache
+        - archive-and-deploy-develop
+        - deploy-artifacts
+
+  staging:
+    before_run: 
+        - cache-pull
+        - pods
+    after_run: 
+        - test
+        - save-cache
+        - archive-and-deploy-staging
+        - deploy-artifacts
+
+  # Test
+
+  test:
+    steps:
+    - xcode-test:
+        title: 'Xcode: Unit Test'
+        inputs:
+        - is_clean_build: 'yes'
+        - scheme: $BITRISE_SCHEME_DEVELOPMENT
+        - output_tool: xcpretty
+
+  # Archive and Deploy to develop
+
+  archive-and-deploy-develop:
+    steps:
+      - xcode-archive:
+          inputs:
+          - is_clean_build: 'yes'
+          - scheme: $BITRISE_SCHEME_STAGING
+          - export_method: "enterprise"
+          - output_tool: xcodebuild
+      - fabric-crashlytics-beta-deploy:
+          inputs:
+          - api_key: "$FABRIC_API_KEY_DEVELOP"
+          - build_secret: "$FABRIC_BUILD_SECRET_DEVELOP"
+      
+  # Archive and Deploy to staging
+
+  archive-and-deploy-staging:
+    steps:
+      - xcode-archive:
+          inputs:
+          - is_clean_build: 'yes'
+          - scheme: $BITRISE_SCHEME_STAGING
+          - export_method: "enterprise"
+          - output_tool: xcpretty
+      - fabric-crashlytics-beta-deploy:
+          inputs:
+          - api_key: "$FABRIC_API_KEY_STAGING"
+          - build_secret: "$FABRIC_BUILD_SECRET_STAGING"
+
+  # Save cache
+
+  save-cache:
+    steps:
+      - cache-push:
+          inputs:
+            - cache_paths: |-
+                 ./Pods -> ./Podfile.lock
+                 ./Carthage -> ./Cartfile.resolved
+
+  # Deploy artifacts
+
+  deploy-artifacts:
+    steps:
+      - deploy-to-bitrise-io:
+          inputs:
+            - notify_user_groups: none
+
+  # Bootstrap
+
+  carthage:
+    steps:
+      - certificate-and-profile-installer: {}
+      - carthage:
+          inputs:
+            - carthage_command: carthage
+            - carthage_options: --platform iOS --no-use-binaries
+
+  # Cocoapods
+
+  pods:
+    steps:
+      - script:
+          inputs:
+          - content: bundle install --path .gems && bundle exec pod install
+
+  # Cache
+
+  cache-pull:
+    steps:
+      - cache-pull: {}
