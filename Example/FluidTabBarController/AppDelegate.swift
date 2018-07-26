@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ("Events", #imageLiteral(resourceName: "events")),
             ("Members", #imageLiteral(resourceName: "members")),
             ("Account", #imageLiteral(resourceName: "profile"))
-            ].map(createSampleViewController)
+        ].map(createSampleViewController)
         tabBarController.setViewControllers(viewControllers, animated: true)
         return tabBarController
     }
