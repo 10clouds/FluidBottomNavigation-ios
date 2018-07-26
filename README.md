@@ -1,6 +1,6 @@
 # FluidTabBarController
 
-[![CI Status](https://img.shields.io/travis/Hubert Kuczyński/FluidTabBarController.svg?style=flat)](https://travis-ci.org/Hubert Kuczyński/FluidTabBarController)
+[![CI Status](https://app.bitrise.io/app/e6562597b7f7f0dd/status.svg?token=YMyR8VoBWCSMQ5FHLpRfyw&branch=feature/bitrise)](https://app.bitrise.io/app/e6562597b7f7f0dd/status.svg?token=YMyR8VoBWCSMQ5FHLpRfyw&branch=feature/bitrise)
 [![Version](https://img.shields.io/cocoapods/v/FluidTabBarController.svg?style=flat)](https://cocoapods.org/pods/FluidTabBarController)
 [![License](https://img.shields.io/cocoapods/l/FluidTabBarController.svg?style=flat)](https://cocoapods.org/pods/FluidTabBarController)
 [![Platform](https://img.shields.io/cocoapods/p/FluidTabBarController.svg?style=flat)](https://cocoapods.org/pods/FluidTabBarController)
