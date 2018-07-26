@@ -50,6 +50,10 @@ final class FluidTabBar: UITabBar {
 
     private var containers = [FluidTabBarItemContainer]()
 
+    private var moreContentView: FluidTabBarItemContentView? = FluidTabBarItemMoreContentView() {
+        didSet { self.reload() }
+    }
+
     // MARK: Initializers
 
     override init(frame: CGRect) {
@@ -86,6 +90,8 @@ final class FluidTabBar: UITabBar {
         return superPointInside
     }
 
+    // MARK: Private methods
+
     private func updateTopLineColor() {
         let color = barTintColor ?? .white
         shadowImage = UIImage.colorForNavBar(color: color)
@@ -94,21 +100,29 @@ final class FluidTabBar: UITabBar {
 }
 
 extension FluidTabBar {
-    private func updateLayout() {
+    func updateLayout() {
         guard let tabBarItems = self.items else { return }
 
-        let tabBarButtons = subviews.filter { subview -> Bool in
-            if let cls = NSClassFromString("UITabBarButton") {
-                return subview.isKind(of: cls)
-            }
-            return false
+        let tabBarButtons = subviews
+            .filter { subview -> Bool in
+                if let cls = NSClassFromString("UITabBarButton") {
+                    return subview.isKind(of: cls)
+                }
+                return false
             }
             .sorted { (subview1, subview2) -> Bool in
                 return subview1.frame.origin.x < subview2.frame.origin.x
-        }
+            }
 
         for (idx, item) in tabBarItems.enumerated() {
-            tabBarButtons[idx].isHidden = item is FluidTabBarItem
+            if let _ = item as? FluidTabBarItem {
+                tabBarButtons[idx].isHidden = true
+            } else {
+                tabBarButtons[idx].isHidden = false
+            }
+            if isMoreItem(idx), let _ = moreContentView {
+                tabBarButtons[idx].isHidden = true
+            }
         }
         for (_, container) in containers.enumerated(){
             container.isHidden = false
@@ -121,6 +135,10 @@ extension FluidTabBar {
 }
 
 extension FluidTabBar {
+    func isMoreItem(_ index: Int) -> Bool {
+        return FluidTabBarController.isShowingMore(tabBarController) && (index == (items?.count ?? 0) - 1)
+    }
+
     private func removeAll() {
         for container in containers {
             container.removeFromSuperview()
@@ -134,7 +152,7 @@ extension FluidTabBar {
             return
         }
         for (idx, item) in tabBarItems.enumerated() {
-            let container = FluidTabBarItemContainer.init(self, tag: 1000 + idx)
+            let container = FluidTabBarItemContainer(self, tag: 1000 + idx)
             self.addSubview(container)
             self.containers.append(container)
 
@@ -142,6 +160,9 @@ extension FluidTabBar {
                 item.contentView.backgroundColor = barTintColor
                 item.contentView.tintColor = tintColor
                 container.addSubview(item.contentView)
+            }
+            if isMoreItem(idx), let moreContentView = moreContentView {
+                container.addSubview(moreContentView)
             }
         }
 
@@ -159,6 +180,8 @@ extension FluidTabBar {
 
         if let item = item as? FluidTabBarItem {
             item.contentView.highlight(animated: true, completion: nil)
+        } else if isMoreItem(newIndex) {
+            moreContentView?.highlight(animated: true, completion: nil)
         }
     }
 
@@ -173,6 +196,8 @@ extension FluidTabBar {
 
         if let item = item as? FluidTabBarItem {
             item.contentView.dehighlight(animated: true, completion: nil)
+        } else if isMoreItem(newIndex) {
+            moreContentView?.dehighlight(animated: true, completion: nil)
         }
     }
 
@@ -180,6 +205,7 @@ extension FluidTabBar {
         guard let container = sender as? FluidTabBarItemContainer else {
             return
         }
+
         select(itemAtIndex: container.tag - 1000, animated: true)
     }
 
@@ -191,18 +217,24 @@ extension FluidTabBar {
         }
 
         if currentIndex != newIndex {
-            if currentIndex != -1 && currentIndex < items?.count ?? 0{
+            if currentIndex != -1 && currentIndex < items?.count ?? 0 {
                 if let currentItem = items?[currentIndex] as? FluidTabBarItem {
                     currentItem.contentView.deselect(animated: animated, completion: nil)
+                } else if isMoreItem(currentIndex) {
+                    moreContentView?.deselect(animated: animated, completion: nil)
                 }
             }
             if let item = item as? FluidTabBarItem {
                 item.contentView.select(animated: animated, completion: nil)
+            } else if isMoreItem(newIndex) {
+                moreContentView?.select(animated: animated, completion: nil)
             }
             delegate?.tabBar?(self, didSelect: item)
         } else if currentIndex == newIndex {
             if let item = item as? FluidTabBarItem {
                 item.contentView.reselect(animated: animated, completion: nil)
+            } else if self.isMoreItem(newIndex) {
+                moreContentView?.reselect(animated: animated, completion: nil)
             }
 
             if let tabBarController = tabBarController {

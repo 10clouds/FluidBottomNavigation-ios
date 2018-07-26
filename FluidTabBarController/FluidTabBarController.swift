@@ -104,6 +104,12 @@ open class FluidTabBarController: UITabBarController {
         }
     }
 
+    open override func setViewControllers(_ viewControllers: [UIViewController]?, animated: Bool) {
+        super.setViewControllers(viewControllers, animated: animated)
+        // Changing the order of view controllers is not supported
+        customizableViewControllers = nil
+    }
+
     open func tabBar(_ tabBar: UITabBar, shouldSelect item: UITabBarItem) -> Bool {
         if let idx = tabBar.items?.index(of: item), let vc = viewControllers?[idx] {
             return delegate?.tabBarController?(self, shouldSelect: vc) ?? true
