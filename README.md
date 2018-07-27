@@ -46,7 +46,7 @@ tabBarController.viewControllers = [mainViewController]
 You can change the color of selected item's text by setting the tint color of the tab bar.
 `tabBarController.tabBar.tintColor = UIColor.red`
 
-![Tint color example](https://raw.githubusercontent.com/10clouds/FluidBottomNavigation-ios/master/Static/tint_color_example.gif)
+![Tint color example](https://raw.githubusercontent.com/10clouds/FluidBottomNavigation-ios/master/Static/tint_color_example.png)
 
 You can also change the color of icons by specifying `imageColor` and `highlightImageColor` or text color by modifying `textColor` and `highlightTextColor`.
 
