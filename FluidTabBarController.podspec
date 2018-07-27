@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FluidTabBarController'
-  s.version          = '0.5.2'
+  s.version          = '0.5.3'
   s.summary          = 'Animated version of UITabBarController'
 
 # This description is used to generate tags and improve search results.
