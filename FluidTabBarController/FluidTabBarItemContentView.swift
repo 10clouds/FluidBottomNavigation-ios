@@ -175,8 +175,8 @@ open class FluidTabBarItemContentView: UIView {
             imageSize = UIScreen.main.scale == 3.0 ? 23.0 : 20.0
             fontSize = UIScreen.main.scale == 3.0 ? 13.0 : 12.0
         } else {
-            imageSize = 23.0
-            fontSize = 10.0
+            imageSize = 30.0
+            fontSize = 13.0
         }
 
         if !imageView.isHidden && !titleLabel.isHidden {
