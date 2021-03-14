@@ -114,6 +114,19 @@ open class FluidTabBarItemContentView: UIView {
             }
         }
     }
+    
+    open var isBadged: Bool? {
+        didSet {
+            self.updateLayout()
+        }
+    }
+    
+    open var badgeNumber: String? {
+        didSet {
+            self.badgeLabel.text = badgeNumber
+            self.updateLayout()
+        }
+    }
 
     open var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -125,6 +138,21 @@ open class FluidTabBarItemContentView: UIView {
         let titleLabel = UILabel(frame: .zero)
         titleLabel.backgroundColor = .clear
         titleLabel.textColor = .clear
+        titleLabel.textAlignment = .center
+        return titleLabel
+    }()
+    
+    open var badgeView: UIView = {
+        let badgeView = UIView(frame: .zero)
+        badgeView.backgroundColor = .red
+        badgeView.layer.cornerRadius = 10
+        return badgeView
+    }()
+    
+    open var badgeLabel: UILabel = {
+        let titleLabel = UILabel(frame: .zero)
+        titleLabel.backgroundColor = .clear
+        titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         return titleLabel
     }()
@@ -140,6 +168,8 @@ open class FluidTabBarItemContentView: UIView {
         addSubview(imageViewContainer)
         imageViewContainer.addSubview(imageView)
         addSubview(titleLabel)
+        addSubview(badgeView)
+        badgeView.addSubview(badgeLabel)
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -175,8 +205,8 @@ open class FluidTabBarItemContentView: UIView {
             imageSize = UIScreen.main.scale == 3.0 ? 23.0 : 20.0
             fontSize = UIScreen.main.scale == 3.0 ? 13.0 : 12.0
         } else {
-            imageSize = 23.0
-            fontSize = 10.0
+            imageSize = 30.0
+            fontSize = 13.0
         }
 
         if !imageView.isHidden && !titleLabel.isHidden {
@@ -195,6 +225,18 @@ open class FluidTabBarItemContentView: UIView {
                     width: imageSize,
                     height: imageSize
                 )
+                if isBadged ?? false{
+                    badgeLabel.font = UIFont.systemFont(ofSize: fontSize)
+                    badgeLabel.sizeToFit()
+                    badgeView.frame = CGRect(
+                        x: (width/2) + (UIScreen.main.scale == 3.0 ? 6.0 : 5.0) ,
+                        y: 2,
+                        width: 20,
+                        height: 20
+                    )
+                }else{
+                    badgeView.frame = .zero
+                }
             } else {
                 titleLabel.frame = CGRect(
                     x: (width - titleLabel.bounds.size.width) / 2.0,
@@ -208,6 +250,18 @@ open class FluidTabBarItemContentView: UIView {
                     width: imageSize,
                     height: imageSize
                 )
+                if isBadged ?? false{
+                    badgeView.frame = CGRect(
+                        x: (width/2) + (UIScreen.main.scale == 3.0 ? 6.0 : 5.0) ,
+                        y: 2,
+                        width: 20,
+                        height: 20
+                    )
+                    badgeLabel.font = UIFont.systemFont(ofSize: 10)
+                    badgeLabel.sizeToFit()
+                }else{
+                    badgeView.frame = .zero
+                }
             }
         } else if !imageView.isHidden {
             imageViewContainer.frame = CGRect(
@@ -217,7 +271,7 @@ open class FluidTabBarItemContentView: UIView {
                 height: imageSize
             )
         } else if !titleLabel.isHidden {
-            titleLabel.font = UIFont.systemFont(ofSize: fontSize)
+            titleLabel.font = UIFont.systemFont(ofSize: 10)
             titleLabel.sizeToFit()
             titleLabel.frame = CGRect(
                 x: (width - titleLabel.bounds.size.width) / 2.0,
@@ -228,6 +282,7 @@ open class FluidTabBarItemContentView: UIView {
         }
 
         imageView.frame = imageViewContainer.bounds
+        badgeLabel.frame = badgeView.bounds
 
         animator.initialize()
         if selected {

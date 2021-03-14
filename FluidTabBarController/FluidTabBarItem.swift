@@ -68,6 +68,16 @@ open class FluidTabBarItem: UITabBarItem {
         didSet { self.contentView.tag = tag }
     }
 
+    open var isBadged :Bool{
+        set { contentView.isBadged = newValue}
+        get { return contentView.isBadged ?? false}
+    }
+    
+    open var badgeNumber:String{
+        set { contentView.badgeNumber = newValue}
+        get { return contentView.badgeNumber ?? ""}
+    }
+    
     let contentView: FluidTabBarItemContentView
 
     // MARK: Initializers
