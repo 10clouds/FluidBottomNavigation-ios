@@ -60,6 +60,7 @@ final class FluidTabBar: UITabBar {
         super.init(frame: frame)
         updateTopLineColor()
         isTranslucent = false
+        configureBackground()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -96,6 +97,19 @@ final class FluidTabBar: UITabBar {
         let color = barTintColor ?? .white
         shadowImage = UIImage.colorForNavBar(color: color)
         backgroundImage = UIImage.colorForNavBar(color: color)
+    }
+    
+    private func configureBackground() {
+        if #available(iOS 13.0, *) {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            tabBarAppearance.backgroundColor = barTintColor ?? .white
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+            
+            if #available(iOS 15.0, *) {
+                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            }
+        }
     }
 }
 
