@@ -101,7 +101,7 @@ final class FluidTabBar: UITabBar {
     
     private func configureBackground() {
         if #available(iOS 13.0, *) {
-            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+            let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithDefaultBackground()
             tabBarAppearance.backgroundColor = barTintColor ?? .white
             UITabBar.appearance().standardAppearance = tabBarAppearance
